@@ -1,0 +1,43 @@
+name:                minifun
+version:             0.1.0.0
+github:              "usi-pl/minifun"
+license:             BSD3
+author:              "Nate Nystrom"
+maintainer:          "nate.nystrom@usi.ch"
+copyright:           "Copyright 2018 - Nate Nystrom"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/usi-pl/minifun/README.md>
+
+dependencies:
+- base >= 4.7 && < 5
+- haskeline >= 0.7
+- array
+- mtl >= 2.2
+
+executables:
+  minifun:
+    main:                Main.hs
+    other-modules:
+    - Lexer
+    - Parser
+    - Eval
+    - Syntax
+    source-dirs:         src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    build-tools:
+    - alex
+    - happy
